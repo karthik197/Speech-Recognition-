@@ -1,0 +1,15 @@
+import speech_recognition as SR
+#initialize Recognizer
+store=SR.Recognizer()
+#use microphone audio input as source
+with SR.Microphone()as src:
+    print('Speak something...')
+    #Record and set the duration
+    audio_input=store.record(src,duration=5)
+    print('Processing...')
+    try:
+        text_output=store.recognize_google(audio_input)
+        print(text_output)
+    except:
+        print('OOps!!! Error occured during processing')
+
